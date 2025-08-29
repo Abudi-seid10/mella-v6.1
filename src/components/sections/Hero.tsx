@@ -187,7 +187,7 @@ const Hero = () => {
               {/* Central Heart Element */}
               <motion.div
                 animate={{
-                  scale: [1, 1.1, 1],
+                  scale: [3, 2.1, 3],
                   rotate: [0, 5, -5, 0],
                 }}
                 transition={{
@@ -197,7 +197,11 @@ const Hero = () => {
                 }}
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center shadow-2xl"
               >
-                <Heart className="text-white" size={48} fill="currentColor" />
+                <img
+                  src="/mella_white.png"
+                  alt="Mella Logo"
+                  className="w-30 h-30 object-contain"
+                />
               </motion.div>
 
               {/* Orbiting Elements */}

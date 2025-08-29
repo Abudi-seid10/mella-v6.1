@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     "virtual counseling",
     "licensed therapists",
     "mental wellness",
+    "Adolescent Counseling",
+    "Online Counseling",
+    "Art Therapy"
   ],
   authors: [{ name: "Mella Counseling Center" }],
   creator: "MoTech Solutions",
@@ -54,6 +57,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
+      <head>
+        <link rel="icon" href="/mella_white.png" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning={true}>
         {children}
       </body>
