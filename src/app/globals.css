@@ -1,26 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8F9FA;
+  --foreground: #2C2C2C;
 }
 
 @theme inline {
+  /* Mella Counseling Center Brand Colors */
+  --color-primary-50: #f0f4f0;
+  --color-primary-100: #dce6dc;
+  --color-primary-200: #b9ccba;
+  --color-primary-300: #96b397;
+  --color-primary-400: #739974;
+  --color-primary-500: #2D5530; /* Deep Forest Green - Main brand color */
+  --color-primary-600: #264a29;
+  --color-primary-700: #1f3e22;
+  --color-primary-800: #18321b;
+  --color-primary-900: #112514;
+  
+  --color-secondary-50: #f4f7f4;
+  --color-secondary-100: #e8ede8;
+  --color-secondary-200: #d1dbd1;
+  --color-secondary-300: #bac9ba;
+  --color-secondary-400: #a3b7a3;
+  --color-secondary-500: #7B9A7C; /* Warm Sage Green */
+  --color-secondary-600: #6f8b70;
+  --color-secondary-700: #5c7c5d;
+  --color-secondary-800: #4a6c4b;
+  --color-secondary-900: #3d5a3e;
+  
+  --color-accent-50: #fefcf7;
+  --color-accent-100: #fdf9ef;
+  --color-accent-200: #fbf0df;
+  --color-accent-300: #f8e7cf;
+  --color-accent-400: #f6debf;
+  --color-accent-500: #E6C46B; /* Soft Gold */
+  --color-accent-600: #e0b852;
+  --color-accent-700: #d9ac39;
+  --color-accent-800: #d3a020;
+  --color-accent-900: #cc9407;
+  
+  --color-neutral-50: #F8F9FA; /* Clean white */
+  --color-neutral-100: #f1f3f4;
+  --color-neutral-200: #e8eaed;
+  --color-neutral-300: #dadce0;
+  --color-neutral-400: #bdc1c6;
+  --color-neutral-500: #9aa0a6;
+  --color-neutral-600: #80868b;
+  --color-neutral-700: #5f6368;
+  --color-neutral-800: #3c4043;
+  --color-neutral-900: #2C2C2C; /* Deep Charcoal */
+  
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  /* Custom animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* Utility classes for gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary-500), var(--color-secondary-500));
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
