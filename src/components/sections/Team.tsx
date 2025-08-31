@@ -7,14 +7,14 @@ import { User, Phone } from 'lucide-react';
 const Team = () => {
   const teamMembers = [
     {
-      name: 'Dr. Meron Tadesse',
-      role: 'Clinical Director & Licensed Psychologist',
-      image: 'bg-gradient-to-br from-primary-400 to-primary-600'
+      name: 'Selamawit Mosisa',
+      role: 'Health Professional and Therapist',
+      image: '/selamawit_mosisa.jpg'
     },
     {
-      name: 'Amanuel Bekele, LMFT',
-      role: 'Senior Marriage & Family Therapist',
-      image: 'bg-gradient-to-br from-secondary-400 to-secondary-600'
+      name: 'Liham kinfe',
+      role: 'Psychologist, Health Professional',
+      image: '/lihams_profile.jpg'
     }
   ];
 
@@ -93,10 +93,15 @@ const Team = () => {
             >
               {/* Avatar */}
               <motion.div
+                animate={member.name === 'Selamawit Mosisa' ? { scale: 0.92 } : member.name === 'Liham kinfe' ? { scale: 1.08 } : { scale: 1 }}
                 whileHover={{ scale: 1.05 }}
-                className={`w-32 h-32 ${member.image} rounded-full flex items-center justify-center mb-6 mx-auto shadow-lg`}
+                className="w-32 h-32 rounded-full flex items-center justify-center mb-6 mx-auto shadow-lg overflow-hidden bg-neutral-200"
               >
-                <User className="text-white" size={48} />
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
 
               {/* Name */}
