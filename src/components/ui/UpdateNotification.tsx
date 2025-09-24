@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { X, RefreshCw } from 'lucide-react';
-import { updateSW } from '@/lib/sw-registration';
 
 interface UpdateNotificationProps {
   registration?: ServiceWorkerRegistration;

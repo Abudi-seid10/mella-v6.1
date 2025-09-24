@@ -12,13 +12,13 @@ export default function ServiceWorkerProvider({ children }: { children: React.Re
     // Only register service worker in production
     if (process.env.NODE_ENV === 'production') {
       registerSW({
-        onSuccess: () => {
-          console.log('SW registered: ', registration);
-          setRegistration(() => registration);
+        onSuccess: (reg) => {
+          console.log('SW registered: ', reg);
+          setRegistration(reg);
         },
-        onUpdate: (registration) => {
-          console.log('SW updated: ', registration);
-          setRegistration(registration);
+        onUpdate: (reg) => {
+          console.log('SW updated: ', reg);
+          setRegistration(reg);
           setShowUpdateNotification(true);
         },
         onError: (error) => {

@@ -7,10 +7,13 @@ import { expect } from 'vitest';
 // Mock next/link
 import { vi } from 'vitest';
 
+const MockLink = ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => {
+  return <a href={href} {...props}>{children}</a>;
+};
+MockLink.displayName = 'MockLink';
+
 vi.mock('next/link', () => {
-  return ({ children, href, ...props }: any) => {
-    return <a href={href} {...props}>{children}</a>;
-  };
+  return MockLink;
 });
 
 describe('Navbar', () => {
