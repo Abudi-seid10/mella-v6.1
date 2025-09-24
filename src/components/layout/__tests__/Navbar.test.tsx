@@ -12,9 +12,9 @@ const MockLink = ({ children, href, ...props }: { children: React.ReactNode; hre
 };
 MockLink.displayName = 'MockLink';
 
-vi.mock('next/link', () => {
-  return MockLink;
-});
+vi.mock('next/link', () => ({
+  default: MockLink
+}));
 
 describe('Navbar', () => {
   it('renders logo and navigation links', () => {
