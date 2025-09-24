@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, Shield, Users, Lock, Star, Award, Heart } from 'lucide-react';
+import { ArrowRight, Shield, Users, Lock, Star, Award } from 'lucide-react';
 
 const Hero = () => {
   const [particlePositions, setParticlePositions] = useState<Array<{left: number, top: number, duration: number, delay: number}>>([]);
@@ -59,7 +60,7 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-accent-200 to-accent-300 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" />
         
         {/* Floating Abstract Elements */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none hidden md:block">
           {floatingElements.map((element, index) => (
             <motion.div
               key={index}
@@ -197,10 +198,12 @@ const Hero = () => {
                 }}
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center shadow-2xl"
               >
-                <img
+                <Image
                   src="/mella_white.png"
                   alt="Mella Logo"
-                  className="w-30 h-30 object-contain"
+                  width={120}
+                  height={120}
+                  className="object-contain"
                 />
               </motion.div>
 

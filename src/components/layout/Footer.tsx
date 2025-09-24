@@ -82,7 +82,7 @@ const Footer = () => {
                   <Phone className="text-accent-400 flex-shrink-0" size={20} />
                   <div>
                     <p className="text-white font-medium">Phone</p>
-                    <p className="text-neutral-300">+251 911 123456</p>
+                    <p className="text-neutral-300">+251 92 541 9100</p>
                   </div>
                 </div>
 
@@ -90,7 +90,7 @@ const Footer = () => {
                   <Mail className="text-accent-400 flex-shrink-0" size={20} />
                   <div>
                     <p className="text-white font-medium">Email</p>
-                    <p className="text-neutral-300">info@mellacounseling.com</p>
+                    <p className="text-neutral-300">info@mellacounseling.com.et</p>
                   </div>
                 </div>
 

@@ -11,16 +11,16 @@ const CTA = () => {
       icon: Phone,
       title: 'Call Us',
       description: 'Speak directly with our team',
-      action: '+251 911 123456',
-      href: 'tel:+251911123456',
+      action: '+251 92 541 9100',
+      href: 'tel:+251925419100',
       color: 'from-primary-500 to-primary-600',
     },
     {
       icon: Mail,
       title: 'Email Us',
       description: 'Send us your questions',
-      action: 'info@mellacounseling.com',
-      href: 'mailto:info@mellacounseling.com',
+      action: 'info@mellacounseling.com.et',
+      href: 'mailto:info@mellacounseling.com.et',
       color: 'from-secondary-500 to-secondary-600',
     },
     {
@@ -137,7 +137,7 @@ const CTA = () => {
                   className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8"
                 >
                   <Link
-                    href="tel:+251911123456"
+                    href="tel:+251925419100"
                     className="group bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-2xl transform hover:scale-105"
                   >
                     <Phone size={20} />

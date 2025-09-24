@@ -326,11 +326,11 @@ const ServicesPage = () => {
               </motion.a>
               
               <div className="flex items-center space-x-6 text-white">
-                <a href="tel:+1-555-0123" className="flex items-center space-x-2 hover:text-blue-200 transition-colors">
+                <a href="tel:+251925419100" className="flex items-center space-x-2 hover:text-blue-200 transition-colors">
                   <Phone size={20} />
-                  <span>+1 (555) 012-3456</span>
+                  <span>+251 92 541 9100</span>
                 </a>
-                <a href="mailto:info@mellacounseling.com" className="flex items-center space-x-2 hover:text-blue-200 transition-colors">
+                <a href="mailto:info@mellacounseling.com.et" className="flex items-center space-x-2 hover:text-blue-200 transition-colors">
                   <Mail size={20} />
                   <span>Contact Us</span>
                 </a>

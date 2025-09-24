@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SkipLink from "@/components/ui/SkipLink";
+import ErrorBoundary from "@/components/ui/ErrorBoundary";
+import ServiceWorkerProvider from "@/components/providers/ServiceWorkerProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -59,9 +62,20 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <head>
         <link rel="icon" href="/mella_white.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#6366f1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Mella" />
       </head>
       <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning={true}>
-        {children}
+        <ServiceWorkerProvider>
+          <SkipLink href="#main-content">Skip to main content</SkipLink>
+          <SkipLink href="#navigation">Skip to navigation</SkipLink>
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
+        </ServiceWorkerProvider>
       </body>
     </html>
   );

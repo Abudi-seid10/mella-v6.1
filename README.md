@@ -94,8 +94,8 @@ A modern, professionally designed website for a mental health counseling practic
 **Three-Column Layout:**
 1. **Contact Information:**
    - Physical address in Addis Ababa, Ethiopia
-   - Ethiopian phone number format: +251 911 123456
-   - Professional email: info@mellacounseling.com
+   - Ethiopian phone number format: +251 92 541 9100
+   - Professional email: info@mellacounseling.com.et
    - Operating hours: Monday-Saturday, 8:00 AM - 6:00 PM
 
 2. **Quick Navigation Links:**

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { User, Phone } from 'lucide-react';
 
@@ -97,10 +98,12 @@ const Team = () => {
                 whileHover={{ scale: 1.05 }}
                 className="w-32 h-32 rounded-full flex items-center justify-center mb-6 mx-auto shadow-lg overflow-hidden bg-neutral-200"
               >
-                <img
+                <Image
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover"
+                  width={128}
+                  height={128}
+                  className="object-cover"
                 />
               </motion.div>
 

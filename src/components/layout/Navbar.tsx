@@ -39,6 +39,9 @@ const Navbar = () => {
           ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-neutral-200'
           : 'bg-transparent'
       }`}
+      role="navigation"
+      aria-label="Main navigation"
+      id="navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -98,7 +101,10 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-neutral-700 hover:text-primary-600 focus:outline-none focus:text-primary-600 transition-colors duration-200"
+              className="text-neutral-700 hover:text-primary-600 focus:outline-none focus:text-primary-600 transition-colors duration-200 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-md p-2"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -115,6 +121,9 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden bg-white/95 backdrop-blur-md border-t border-neutral-200"
+            id="mobile-menu"
+            role="menu"
+            aria-labelledby="mobile-menu-button"
           >
             <div className="px-4 py-4 space-y-4">
               {navLinks.map((link, linkIndex) => (
