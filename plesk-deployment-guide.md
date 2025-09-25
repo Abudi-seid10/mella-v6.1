@@ -56,7 +56,7 @@ If you need environment variables:
 1. In Plesk Node.js settings, go to **Environment Variables**
 2. Add any required variables:
    - `NODE_ENV=production`
-   - `PORT=3000` (or the port Plesk assigns)
+   - **Important**: Do NOT set a custom PORT variable - let Plesk assign the port automatically
 
 ## Step 6: Start the Application
 
@@ -84,12 +84,17 @@ If you prefer to deploy as static files only (no Node.js server):
 
 ### Common Issues:
 
-1. **App won't start**:
+1. **Port already in use (EADDRINUSE)**:
+   - This is normal in Plesk - the server will automatically find an available port
+   - Do NOT set a custom PORT environment variable
+   - Plesk manages port assignment automatically
+
+2. **App won't start**:
    - Check that `server.js` is in the application root
    - Verify Node.js version compatibility
    - Check error logs in Plesk
 
-2. **404 errors on routes**:
+3. **404 errors on routes**:
    - Ensure the server.js handles routing correctly
    - Check that all files in `out` folder are uploaded
 
