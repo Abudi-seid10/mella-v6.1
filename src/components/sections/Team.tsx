@@ -6,13 +6,13 @@ import { User } from 'lucide-react';
 const teamMembers = [
   {
     name: 'Selamawit Mosisa',
-    role: 'Clinical Psychologist',
+    role: 'Health Professional and Therapist',
     image: '/selamawit_mosisa3.png',
     description: 'Specialized in cognitive behavioral therapy and trauma recovery with over 8 years of experience.'
   },
   {
     name: 'Liham Kinfe',
-    role: 'Mental Health Professional',
+    role: 'Psychologist, Health Professional',
     image: '/lihams_profile2.png',
     description: 'Expert in behavioral therapy and anxiety management with 6+ years of clinical experience.'
   }
@@ -43,7 +43,7 @@ export default function Team() {
           
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Professional Mental Health{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-700">
               Experts
             </span>
           </h2>
@@ -81,7 +81,7 @@ export default function Team() {
               {/* Content */}
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-lg text-blue-600 font-semibold mb-4">{member.role}</p>
+                <p className="text-lg text-green-600 font-semibold mb-4">{member.role}</p>
                 <p className="text-gray-600 leading-relaxed max-w-sm mx-auto">
                 </p>
               </div>
