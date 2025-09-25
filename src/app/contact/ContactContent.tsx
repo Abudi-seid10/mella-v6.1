@@ -84,7 +84,7 @@ export default function ContactContent() {
             
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Ready to take the first step towards better mental health? 
-              We're here to support you on your journey to wellness.
+              We&apos;re here to support you on your journey to wellness.
             </p>
           </motion.div>
         </div>
@@ -100,12 +100,12 @@ export default function ContactContent() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bgrid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+              className="bg-white rounded-xl p-8 shadow-lg border border-gray-100"
             >
               <div className="mb-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Send us a Message</h2>
                 <p className="text-gray-600">
-                  Fill out the form below and we'll get back to you as soon as possible.
+                  Fill out the form below and we&apos;ll get back to you as soon as possible.
                 </p>
               </div>
 
@@ -198,7 +198,7 @@ export default function ContactContent() {
                     required
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                    placeholder="Tell us more about what you're looking for..."
+                    placeholder="Tell us more about what you&apos;re looking for..."
                   />
                 </div>
 
@@ -224,7 +224,7 @@ export default function ContactContent() {
               <div className="mb-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Get in Touch</h2>
                 <p className="text-gray-600 text-lg">
-                  We're here to help you on your mental health journey. 
+                  We&apos;re here to help you on your mental health journey. 
                   Reach out to us through any of the following methods.
                 </p>
               </div>

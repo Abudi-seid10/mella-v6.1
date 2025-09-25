@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, Mail, MessageSquare, Calendar, Heart, Sparkles } from 'lucide-react';
+import { ArrowRight, Phone, Mail, Calendar, Heart, Sparkles } from 'lucide-react';
 
 const CTA = () => {
   const contactMethods = [
