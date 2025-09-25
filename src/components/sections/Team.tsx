@@ -10,12 +10,12 @@ const Team = () => {
     {
       name: 'Selamawit Mosisa',
       role: 'Health Professional and Therapist',
-      image: '/selamawit_mosisa.jpg'
+      image: '/selamawit_mosisa.png'
     },
     {
       name: 'Liham kinfe',
       role: 'Psychologist, Health Professional',
-      image: '/lihams_profile.jpg'
+      image: '/lihams_profile.png'
     }
   ];
 
