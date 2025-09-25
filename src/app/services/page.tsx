@@ -316,7 +316,7 @@ const ServicesPage = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.a
-                href="#contact"
+                href="/contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center space-x-2 bg-white text-primary-600 hover:text-primary-700 font-semibold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"

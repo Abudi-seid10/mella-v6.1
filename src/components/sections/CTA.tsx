@@ -23,14 +23,7 @@ const CTA = () => {
       href: 'mailto:info@mellacounseling.com.et',
       color: 'from-secondary-500 to-secondary-600',
     },
-    {
-      icon: MessageSquare,
-      title: 'Live Chat',
-      description: 'Chat with our support team',
-      action: 'Start Chat',
-      href: '#chat',
-      color: 'from-accent-500 to-accent-600',
-    },
+    
   ];
 
   const floatingElements = [

@@ -11,8 +11,7 @@ const Footer = () => {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About Us' },
     { href: '/services', label: 'Services' },
-    { href: '/#contact', label: 'Contact' },
-    { href: '/#blog', label: 'Blog & Resources' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   const containerVariants = {

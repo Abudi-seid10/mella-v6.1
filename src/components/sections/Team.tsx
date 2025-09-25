@@ -1,49 +1,27 @@
 'use client';
-
-import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { User, Phone } from 'lucide-react';
+import Image from 'next/image';
+import { User } from 'lucide-react';
 
-const Team = () => {
-  const teamMembers = [
-    {
-      name: 'Selamawit Mosisa',
-      role: 'Health Professional and Therapist',
-      image: '/selamawit_mosisa.png'
-    },
-    {
-      name: 'Liham kinfe',
-      role: 'Psychologist, Health Professional',
-      image: '/lihams_profile.png'
-    }
-  ];
+const teamMembers = [
+  {
+    name: 'Selamawit Mosisa',
+    role: 'Clinical Psychologist',
+    image: '/selamawit_mosisa3.png',
+    description: 'Specialized in cognitive behavioral therapy and trauma recovery with over 8 years of experience.'
+  },
+  {
+    name: 'Liham Kinfe',
+    role: 'Mental Health Professional',
+    image: '/lihams_profile2.png',
+    description: 'Expert in behavioral therapy and anxiety management with 6+ years of clinical experience.'
+  }
+];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
-
+export default function Team() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-full filter blur-3xl opacity-20 transform translate-x-1/2" />
-        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-gradient-to-br from-accent-100 to-accent-200 rounded-full filter blur-3xl opacity-15 transform -translate-x-1/2" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -57,99 +35,82 @@ const Team = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center space-x-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full font-medium text-sm mb-4"
+            className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-medium text-sm mb-4"
           >
             <User size={16} />
             <span>Meet Our Team</span>
           </motion.div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Professional Mental Health{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
               Experts
             </span>
           </h2>
           
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-            Our dedicated team of licensed professionals brings years of experience, 
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Our dedicated team of licensed professionals brings years of experience,
             specialized training, and genuine compassion to support your mental health journey.
           </p>
         </motion.div>
 
-        {/* Team Members Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto"
-        >
-          {teamMembers.map((member) => (
+        {/* Team Grid */}
+        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
-              variants={itemVariants}
-              whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-neutral-100 text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              className="text-center"
             >
-              {/* Avatar */}
-              <motion.div
-                animate={member.name === 'Selamawit Mosisa' ? { scale: 0.92 } : member.name === 'Liham kinfe' ? { scale: 1.08 } : { scale: 1 }}
-                whileHover={{ scale: 1.05 }}
-                className="w-32 h-32 rounded-full flex items-center justify-center mb-6 mx-auto shadow-lg overflow-hidden bg-neutral-200"
-              >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={128}
-                  height={128}
-                  className="object-cover"
-                />
-              </motion.div>
+              {/* Large Image */}
+              <div className="mb-6">
+                <div className="w-64 h-90 mx-auto rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={256}
+                    height={256}
+                    className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </div>
 
-              {/* Name */}
-              <h3 className="text-2xl font-bold text-neutral-900 mb-3">
-                {member.name}
-              </h3>
-
-              {/* Role */}
-              <p className="text-base font-medium text-primary-600 leading-relaxed">
-                {member.role}
-              </p>
+              {/* Content */}
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                <p className="text-lg text-blue-600 font-semibold mb-4">{member.role}</p>
+                <p className="text-gray-600 leading-relaxed max-w-sm mx-auto">
+                </p>
+              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Bottom CTA */}
+        {/* Simple CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-8 border border-primary-100">
-            <h3 className="text-2xl font-bold text-neutral-900 mb-4">
-              Ready to Begin Your Journey?
-            </h3>
-            <p className="text-neutral-600 mb-6 max-w-2xl mx-auto">
-              Our experienced team is here to support you every step of the way. 
-              Contact us today to schedule a consultation with one of our specialists.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl">
-                <Phone size={18} />
-                <span>Schedule Consultation</span>
-              </button>
-              <button className="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-semibold px-8 py-3 rounded-full transition-all duration-200">
-                Learn More About Our Services
-              </button>
-            </div>
-          </div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            Ready to get started?
+          </h3>
+          <p className="text-gray-600 mb-8">
+            Schedule a consultation with our team today
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-green-900 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg text-lg"
+          >
+            Book Appointment
+          </motion.button>
         </motion.div>
       </div>
     </section>
   );
-};
-
-export default Team;
+}

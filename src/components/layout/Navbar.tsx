@@ -89,7 +89,7 @@ const Navbar = () => {
             className="hidden md:block"
           >
             <Link
-              href="#contact"
+              href="/contact"
               className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-full font-medium transition-colors duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl"
             >
               <Phone size={18} />
