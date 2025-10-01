@@ -6,7 +6,7 @@ import { User } from 'lucide-react';
 const teamMembers = [
   {
     name: 'Selamawit Mosisa',
-    role: 'Health Professional and Therapist',
+    role: 'Health Professional and Psychotherapist',
     image: '/selamawit_mosisa3.png',
     description: 'Specialized in cognitive behavioral therapy and trauma recovery with over 8 years of experience.'
   },

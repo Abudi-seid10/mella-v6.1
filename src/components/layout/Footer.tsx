@@ -72,7 +72,7 @@ const Footer = () => {
                   <div>
                     <p className="text-white font-medium">Address</p>
                     <p className="text-neutral-300">
-                      Bole Atlas, Addis Ababa, Ethiopia
+                      Lebu, Addis Ababa, Ethiopia
                     </p>
                   </div>
                 </div>
