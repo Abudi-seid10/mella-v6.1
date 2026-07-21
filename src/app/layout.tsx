@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import SkipLink from "@/components/ui/SkipLink";
 import ErrorBoundary from "@/components/ui/ErrorBoundary";
 import ServiceWorkerProvider from "@/components/providers/ServiceWorkerProvider";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Mella Counseling Center - Professional Mental Health Care in Ethiopia",
@@ -68,7 +63,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Mella" />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning={true}>
+      <body className="font-sans antialiased" suppressHydrationWarning={true}>
         <ServiceWorkerProvider>
           <SkipLink href="#main-content">Skip to main content</SkipLink>
           <SkipLink href="#navigation">Skip to navigation</SkipLink>
@@ -76,6 +71,7 @@ export default function RootLayout({
             {children}
           </ErrorBoundary>
         </ServiceWorkerProvider>
+        <Analytics />
       </body>
     </html>
   );
