@@ -1,90 +1,81 @@
-# Plesk Node.js Deployment Guide for Mella Website
+# Plesk Deployment Guide for Mella Website
 
 ## Prerequisites
-- Plesk panel with Node.js support enabled
+- Plesk panel access
 - Access to your domain's file manager or FTP
 - SSH access (optional but recommended)
 
-## Step 1: Prepare Your Files
+## Recommended: Static File Deployment (No Node.js Required)
 
-Your project is already built and ready! The `out` folder contains all static files.
+Since this project uses Next.js static export, you can deploy without Node.js on the server. This avoids Node.js configuration issues and provides better performance.
 
-## Step 2: Upload Files to Plesk
-
-### Option A: Using Plesk File Manager
-1. Log into your Plesk control panel
-2. Go to **Files** → **File Manager**
-3. Navigate to your domain's document root (usually `httpdocs` or `public_html`)
-4. Upload the entire project folder OR just the contents
-
-### Option B: Using FTP/SFTP
+### Step 1: Build Locally
 ```bash
-# Upload the entire project to your server
-# Make sure to upload:
-# - package.json
-# - server.js
-# - out/ folder (contains all static files)
-# - node_modules/ (or run npm install on server)
+cd mella-v6.1
+npm run build
 ```
 
-## Step 3: Configure Node.js in Plesk
+### Step 2: Upload Static Files
+Upload only the contents of the `out/` folder to your Plesk `httpdocs` directory:
+- `out/index.html` → `httpdocs/index.html`
+- `out/about/` → `httpdocs/about/`
+- `out/contact/` → `httpdocs/contact/`
+- `out/services/` → `httpdocs/services/`
+- `out/_next/` → `httpdocs/_next/`
+- All other static assets
 
-1. In Plesk, go to **Websites & Domains**
-2. Click on your domain
-3. Go to **Node.js**
-4. Click **Enable Node.js**
-5. Configure the following settings:
+### Step 3: Configure Web Server
+No additional configuration needed - Apache/Nginx will serve the static files directly.
 
-### Node.js Settings:
-- **Node.js version**: Choose the latest stable version (18.x or 20.x)
-- **Document root**: `/httpdocs` (or your domain's root)
-- **Application root**: `/httpdocs` (same as document root)
-- **Application startup file**: `server.js`
-- **Application mode**: `production`
+### Step 4: Test
+Visit your domain and test all routes.
 
-## Step 4: Install Dependencies
+## Alternative: Node.js Deployment (If Required)
 
-1. In the Node.js section, click **NPM Install**
-2. Or use the terminal if available:
-```bash
-npm install
-```
+If you need to use Node.js on Plesk, you must fix the Node.js path issue first.
 
-## Step 5: Environment Variables (Optional)
+### Fix Node.js Path Issue
+The error `nodenv: node: command not found` occurs because Node.js isn't in the system PATH.
 
-If you need environment variables:
-1. In Plesk Node.js settings, go to **Environment Variables**
-2. Add any required variables:
-   - `NODE_ENV=production`
-   - **Important**: Do NOT set a custom PORT variable - let Plesk assign the port automatically
+**Solution:**
+1. In Plesk, go to **Websites & Domains** → **Node.js**
+2. Ensure Node.js is enabled and the correct version (20 or 22) is selected
+3. Check that the Node.js path is properly configured
+4. If issues persist, contact your hosting provider to fix the Node.js installation
 
-## Step 6: Start the Application
+### Node.js Deployment Steps
+1. Upload these files to `httpdocs`:
+   - `package.json`
+   - `server.js`
+   - `out/` folder (static files)
 
-1. In Plesk Node.js section, click **Restart App**
-2. Or use the **Enable/Disable** toggle
+2. **Important:** Do NOT upload `node_modules` - install on server
 
-## Step 7: Verify Deployment
+3. Configure Node.js in Plesk:
+   - Document root: `/httpdocs`
+   - Application root: `/httpdocs`
+   - Startup file: `server.js`
+   - Application mode: `production`
 
-1. Visit your domain: `https://yourdomain.com`
-2. Test all pages:
-   - Home: `https://yourdomain.com`
-   - About: `https://yourdomain.com/about`
-   - Services: `https://yourdomain.com/services`
-   - Contact: `https://yourdomain.com/contact`
+4. Run `npm install --production` (skip dev dependencies to avoid Tailwind build issues)
 
-## Alternative: Static File Deployment
-
-If you prefer to deploy as static files only (no Node.js server):
-
-1. Upload only the contents of the `out` folder to your `httpdocs` directory
-2. No Node.js configuration needed
-3. Your site will work as a static website
+5. Start the application
 
 ## Troubleshooting
 
 ### Common Issues:
 
-1. **Port already in use (EADDRINUSE)**:
+1. **Node command not found (Error 127)**:
+   - This is a Plesk Node.js configuration issue
+   - Use static deployment instead (recommended)
+   - Or contact hosting provider to fix Node.js PATH
+
+2. **Tailwind CSS build errors on server**:
+   - Build locally, deploy static files only
+   - Don't run `npm install` on production for static sites
+   - Tailwind CSS v4 requires Node.js for build process
+
+3. **Port already in use (EADDRINUSE)**:
    - This is normal in Plesk - the server will automatically find an available port
    - Do NOT set a custom PORT environment variable
    - Plesk manages port assignment automatically
